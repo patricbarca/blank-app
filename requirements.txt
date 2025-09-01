@@ -1,1 +1,13 @@
-streamlit
+# Core
+streamlit==1.37.0
+Pillow
+opencv-python
+
+# Barcode scanning
+pyzbar
+
+# Google APIs
+google-api-python-client
+google-auth
+gspread
+
