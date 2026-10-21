@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mateline — AI chat for tradies</title>
+<meta name="description" content="Mateline answers enquiries, texts back missed calls and books jobs for Aussie tradies, 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --bg-soft:#f6f8f7; --ink:#111413; --muted:#5b6461; --line:#e4e8e6;
+    --brand:#0f9d76; --brand-soft:#e7f6f1; --btn:#111413; --btn-ink:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e1110; --bg-soft:#151a18; --ink:#eef2f0; --muted:#a2aca8; --line:#26302c;
+      --brand:#2bc497; --brand-soft:#123228; --btn:#eef2f0; --btn-ink:#0e1110;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1110; --bg-soft:#151a18; --ink:#eef2f0; --muted:#a2aca8; --line:#26302c;
+    --brand:#2bc497; --brand-soft:#123228; --btn:#eef2f0; --btn-ink:#0e1110;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  header{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-weight:700;font-size:1.6rem;letter-spacing:-.02em}
+  .logo span{color:var(--brand);border-bottom:3px solid var(--brand)}
+  .links{display:flex;gap:28px;align-items:center;color:var(--muted)}
+  .links a:hover{color:var(--ink)}
+  .btn{display:inline-block;background:var(--btn);color:var(--btn-ink);padding:12px 20px;border-radius:10px;font-weight:600;border:1px solid var(--btn)}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn:hover{opacity:.9}
+  .hero{text-align:center;padding:96px 0 72px;background:linear-gradient(var(--bg-soft),var(--bg))}
+  .pill{display:inline-block;border:1px solid var(--brand);background:var(--brand-soft);color:var(--brand);padding:6px 16px;border-radius:999px;font-size:.92rem;font-weight:500}
+  h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.05;letter-spacing:-.035em;margin:28px auto 20px;max-width:900px;font-weight:800}
+  .tag{font-weight:600;font-size:1.2rem;margin:0 0 16px}
+  .lead{color:var(--muted);font-size:1.2rem;max-width:680px;margin:0 auto 36px}
+  .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .ctas .btn{padding:16px 28px;font-size:1.05rem}
+  .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:36px 0 12px}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.92rem;color:var(--muted)}
+  .fine{color:var(--muted);font-size:.95rem}
+  section{padding:80px 0}
+  h2{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.025em;margin:0 0 12px;text-align:center}
+  .sub{color:var(--muted);text-align:center;max-width:620px;margin:0 auto 48px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--bg)}
+  .card h3{margin:0 0 8px;font-size:1.1rem}
+  .card p{margin:0;color:var(--muted)}
+  .soft{background:var(--bg-soft)}
+  .steps{counter-reset:s}
+  .steps .card::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand-soft);color:var(--brand);font-weight:700;margin-bottom:12px}
+  .price{display:flex;flex-direction:column}
+  .price .amt{font-size:2.4rem;font-weight:800;letter-spacing:-.03em;margin:8px 0}
+  .price .amt small{font-size:1rem;color:var(--muted);font-weight:500}
+  .price ul{padding-left:18px;color:var(--muted);flex:1}
+  .price.hot{border:2px solid var(--brand)}
+  .badge{align-self:flex-start;background:var(--brand);color:#fff;font-size:.75rem;padding:3px 10px;border-radius:999px;font-weight:600}
+  .demo{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  @media (max-width:820px){.demo{grid-template-columns:1fr}.links a:not(.btn){display:none}}
+  .phone{border:1px solid var(--line);border-radius:20px;background:var(--bg);overflow:hidden;max-width:420px;width:100%;margin:0 auto}
+  .phone-head{padding:14px 16px;border-bottom:1px solid var(--line);font-weight:600;display:flex;gap:10px;align-items:center}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--brand)}
+  .msgs{height:340px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:8px}
+  .m{max-width:80%;padding:10px 14px;border-radius:14px;font-size:.95rem}
+  .m.bot{background:var(--bg-soft);align-self:flex-start;border-bottom-left-radius:4px}
+  .m.me{background:var(--brand);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+  .quick{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;border-top:1px solid var(--line)}
+  .quick button{font:inherit;font-size:.88rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+  .quick button:hover{border-color:var(--brand)}
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{cursor:pointer;font-weight:600}
+  details p{color:var(--muted);margin:10px 0 0}
+  footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.9rem}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .fab{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:var(--brand);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">mate<span>line</span></a>
+    <nav class="links">
+      <a href="#trades">Trades</a>
+      <a href="#demo">Demo</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#start" class="btn">Get my free demo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="pill">AI chat &amp; SMS for Aussie tradies</span>
+      <h1>Win more jobs,<br>without picking up the phone on the tools.</h1>
+      <p class="tag">Your 24/7 offsider that never misses a lead.</p>
+      <p class="lead">Mateline answers website enquiries, texts back missed calls, qualifies the job and books it into your calendar — while you're up a ladder.</p>
+      <div class="ctas">
+        <a href="#start" class="btn">Build my free demo</a>
+        <a href="#demo" class="btn ghost">Try the live demo</a>
+      </div>
+      <div class="chips">
+        <span class="chip">🌐 Website chat</span>
+        <span class="chip">💬 SMS</span>
+        <span class="chip">📘 Messenger</span>
+        <span class="chip">WhatsApp · optional</span>
+      </div>
+      <p class="fine">Unlimited chats · Demo built from your website in 24 hours · No credit card</p>
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="wrap">
+      <h2>Every missed call is a job for someone else</h2>
+      <p class="sub">When you can't answer, customers ring the next tradie on Google. Mateline replies in seconds, day or night.</p>
+      <div class="grid">
+        <div class="card"><h3>📲 Missed-call text-back</h3><p>Miss a call? The customer gets an SMS straight away and Mateline keeps the conversation going.</p></div>
+        <div class="card"><h3>🧰 Trained on your business</h3><p>Your services, suburbs, call-out fees and FAQs. It answers like you would — in plain Aussie English.</p></div>
+        <div class="card"><h3>📸 Qualified leads</h3><p>Collects name, suburb, job type, photos and urgency so you can quote without the back-and-forth.</p></div>
+        <div class="card"><h3>📅 Books the job</h3><p>Offers your available times and drops the booking into Google or Outlook Calendar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trades">
+    <div class="wrap">
+      <h2>Built for trades and home services</h2>
+      <p class="sub">Set up for how your trade actually gets enquiries.</p>
+      <div class="grid">
+        <div class="card"><h3>Plumbers</h3><p>Triage emergencies vs. routine jobs, after-hours rates, hot water quotes.</p></div>
+        <div class="card"><h3>Electricians</h3><p>Safety checks, switchboard upgrades, solar and EV charger enquiries.</p></div>
+        <div class="card"><h3>Air con &amp; HVAC</h3><p>Install vs. service, unit sizes, seasonal rush handling.</p></div>
+        <div class="card"><h3>Cleaners, gardeners &amp; more</h3><p>Recurring bookings, service areas, simple quotes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="soft">
+    <div class="wrap demo">
+      <div>
+        <h2 style="text-align:left">See it in action</h2>
+        <p style="color:var(--muted)">This is a sample bot for a made-up plumbing business. Tap a question to see how Mateline handles an enquiry.</p>
+        <p style="color:var(--muted)">Want one built from <em>your</em> website? We'll send you a working demo within 24 hours.</p>
+        <a href="#start" class="btn">Build mine</a>
+      </div>
+      <div class="phone" aria-label="Demo chat">
+        <div class="phone-head"><span class="dot"></span>Harbour Plumbing · Assistant</div>
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <div class="quick" id="quick"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Live in three steps</h2>
+      <p class="sub">We do the setup. You keep working.</p>
+      <div class="grid steps">
+        <div class="card"><h3>Send us your website</h3><p>We train Mateline on your services, areas and prices.</p></div>
+        <div class="card"><h3>Try your free demo</h3><p>Within 24 hours you get a link to test it yourself.</p></div>
+        <div class="card"><h3>Go live</h3><p>We add it to your site and connect your number. Leads land on your phone.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="soft">
+    <div class="wrap">
+      <h2>Simple pricing, in AUD</h2>
+      <p class="sub">All prices include GST. Month to month — no lock-in contracts.</p>
+      <div class="grid">
+        <div class="card price">
+          <h3>Starter</h3>
+          <div class="amt">$99<small>/month</small></div>
+          <ul><li>Website chat, unlimited chats</li><li>Lead capture with photos</li><li>Lead summaries by SMS &amp; email</li></ul>
+          <a href="#start" class="btn ghost">Start free demo</a>
+        </div>
+        <div class="card price hot">
+          <span class="badge">Most popular</span>
+          <h3>Pro</h3>
+          <div class="amt">$199<small>/month</small></div>
+          <ul><li>Everything in Starter</li><li>Missed-call text-back</li><li>Calendar booking</li><li>Facebook Messenger</li><li>500 SMS included</li></ul>
+          <a href="#start" class="btn">Start free demo</a>
+        </div>
+        <div class="card price">
+          <h3>Crew</h3>
+          <div class="amt">$349<small>/month</small></div>
+          <ul><li>Everything in Pro</li><li>Multiple techs &amp; locations</li><li>Job management integrations</li><li>Monthly lead report</li></ul>
+          <a href="#start" class="btn ghost">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap" style="max-width:760px">
+      <h2>Questions</h2>
+      <details><summary>Will it make up prices or promise things I don't do?</summary><p>No. It only uses the info you approve. If it doesn't know, it takes the customer's details and passes the lead to you.</p></details>
+      <details><summary>Do I need a new phone number?</summary><p>No. Missed-call text-back works with your existing mobile or business number via call forwarding.</p></details>
+      <details><summary>What about customer privacy?</summary><p>Customer data is used only to handle enquiries for your business. We don't sell data, and marketing messages are only sent with consent.</p></details>
+      <details><summary>Can I cancel anytime?</summary><p>Yes. Plans are month to month.</p></details>
+    </div>
+  </section>
+
+  <section id="start" class="soft">
+    <div class="wrap" style="text-align:center">
+      <h2>Get your free demo in 24 hours</h2>
+      <p class="sub">Send us your website and we'll build a Mateline bot trained on your business. No credit card.</p>
+      <form onsubmit="event.preventDefault();this.innerHTML='<p class=&quot;tag&quot;>Thanks! We&rsquo;ll be in touch within 24 hours.</p>'" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:640px;margin:0 auto">
+        <input required type="url" placeholder="yourbusiness.com.au" aria-label="Website" style="flex:1 1 220px;padding:14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit">
+        <input required type="email" placeholder="you@email.com" aria-label="Email" style="flex:1 1 220px;padding:14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit">
+        <button class="btn" type="submit" style="font:inherit;font-weight:600;cursor:pointer">Build my demo</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Mateline · Made for Australian small businesses</span>
+    <span>Privacy · Terms · Contact</span>
+  </div>
+</footer>
+
+<a href="#demo" class="fab" aria-label="Open demo chat">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+</a>
+
+<script>
+  const script = {
+    start: "G'day! I'm the Harbour Plumbing assistant. How can I help today?",
+    q: {
+      "My hot water's stopped working": "Sorry to hear that! Is it gas or electric, and roughly how old is the system? If you can, send a photo of the label and I'll get the right tech out.",
+      "Do you service my suburb?": "We cover the Inner West, Eastern Suburbs and North Shore. What suburb are you in?",
+      "How much is a call-out?": "Our standard call-out is $120 incl. GST, which includes the first 30 minutes on site. After-hours rates apply 6pm–7am.",
+      "Can I book for tomorrow?": "We've got 8–10am or 1–3pm tomorrow. Which suits? I'll just need your name, address and a quick description of the job."
+    }
+  };
+  const msgs = document.getElementById('msgs'), quick = document.getElementById('quick');
+  function add(text, who){
+    const d = document.createElement('div'); d.className = 'm ' + who; d.textContent = text;
+    msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+  }
+  add(script.start, 'bot');
+  Object.keys(script.q).forEach(k => {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = k;
+    b.onclick = () => { add(k, 'me'); setTimeout(() => add(script.q[k], 'bot'), 600); };
+    quick.appendChild(b);
+  });
+</script>
+</body>
+</html>
