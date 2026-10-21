@@ -69,15 +69,61 @@ Fontaneros, electricistas, aire acondicionado, cerrajeros, techadores, jardinero
 
 ---
 
-## 5. Competencia
+## 5. Análisis de mercado y competencia
 
-- **Directa (tradies AU):** TransferToAI, Made 4 Tradies, agencias GoHighLevel.
-- **Indirecta:** Podium, recepcionistas virtuales humanos, chatbots genéricos (Intercom, Tidio, Chatbase).
-- **Diferenciación:**
-  1. Texto (chat + SMS), no voz → más barato y fiable.
-  2. Demo con *su propia web* en 24 h.
-  3. Configuración hecha por nosotros; el tradie no toca nada.
-  4. Precio plano en AUD, sin contrato.
+### Respuesta corta: sí, ya existen muchas empresas que hacen esto en Australia
+
+El mercado está **activo y bastante saturado**. No es una idea nueva allí; hay que entrar con una diferencia clara.
+
+### Tamaño y adopción
+
+- **Mercado de IA conversacional en Australia:** ~USD 500 M en 2025, previsión ~USD 6.000 M en 2034 (IMARC; una sola consultora → estimación, no dato firme).
+- **Adopción de IA en pequeñas empresas (Confirmado, ABS 2024–25):** ~11 % de las pequeñas/micro empresas usaba IA. → Mucho espacio por crecer.
+- **Encuestas privadas** dan cifras mucho más altas (43 %–72 %) porque cuentan cualquier uso, incluso ChatGPT ocasional. Tómalas con cautela.
+- **Atención al cliente** es uno de los usos más citados (~32 % según una encuesta secundaria).
+
+### Competidores encontrados (precios según sus webs o comparativas; no verificados por mí)
+
+**A. Recepcionistas IA por voz para tradies — el segmento más saturado**
+
+| Empresa | Origen | Precio publicado | Notas |
+|---|---|---|---|
+| Sophiie | Australia | ~$89–$300/mes + setup ~$400–$800 | Muy enfocada en tradies; precios contradictorios entre fuentes |
+| Jodie (heyjodie) | — | Desde A$99/mes plano | Captura el trabajo y lo manda por SMS; sin setup |
+| Relay (Leva) | Australia | $199/mes | Integración con ServiceM8 |
+| TransferToAI | Australia | Desde A$99/mes | Agenda en ServiceM8 + resumen SMS |
+| Miyai | — | Chat desde A$19/mes; voz desde A$199/mes | Precio muy bajo en chat |
+| Valory | Australia | A$149–1.299/mes + setup desde A$990 | Más enterprise |
+| Rosie | EE. UU. | USD $49–$299/mes | Sin acento australiano |
+| Made 4 Tradies | Australia | Sin precio público | Chat, presupuestos IA, voz; Xero/ServiceM8/Tradify |
+
+**B. Chatbots web / multicanal para PYMEs (agencias locales)**
+
+| Empresa | Precio / oferta |
+|---|---|
+| chatbot.net.au | Desde $99/mes, listo en 5–7 días, demo gratis |
+| Systree | SMS, Facebook, Instagram, WhatsApp, web; registra en CRM |
+| Stacked Digital | Chat web + SMS bidireccional + agenda |
+| RightLink | Presupuesto fijo, ~2 semanas hasta salir en vivo |
+| Dynamic Marketing Australia | Chatbot de captura de leads |
+
+**C. Herramientas globales autoservicio:** Tidio (plan gratis), Intercom, Chatbase, Podium, GoHighLevel (lo usan muchas agencias).
+
+### Qué significa esto (mi interpretación)
+
+- **Probable:** la demanda existe — tantos competidores indican que los clientes pagan.
+- **Probable:** el precio de entrada ya está fijado en **~A$99/mes**, y Miyai ofrece chat desde A$19. Mi plan Starter de $99 **no destaca** solo por precio.
+- **Probable:** la mayoría compite en **voz**. El chat + SMS es menos ruidoso pero también tiene oferta (chatbot.net.au, Stacked Digital).
+- **Riesgo:** entrar como "otro chatbot genérico" desde fuera de Australia, sin marca ni red local, es difícil.
+
+### Cómo diferenciarse (opciones, de más a menos recomendada)
+
+1. **Hiper-nicho vertical:** un solo oficio (p. ej. aire acondicionado, control de plagas o limpieza) con flujos, preguntas y presupuestos específicos. Los competidores son "para todos los tradies".
+2. **Presupuesto con fotos:** el cliente sube fotos y el bot genera un presupuesto orientativo para que el tradie lo apruebe. Ataca el dolor de papeleo que señala 13Labs.
+3. **Comunidad latina en Australia:** negocios de limpieza, construcción y servicios gestionados por hispanohablantes, con soporte en español y bot en inglés. Ventaja: hablas su idioma y la competencia no. (**Incierto:** no verifiqué el tamaño de ese segmento.)
+4. **Agencia "hecho por ti" + alianzas:** venderte a través de contables, diseñadores web o proveedores de software (ServiceM8, Tradify) en vez de competir en anuncios.
+
+**Diferenciadores base (mantener):** demo con *su propia web* en 24 h, configuración hecha por nosotros, precio plano en AUD, sin contrato.
 
 ---
 
@@ -126,3 +172,17 @@ Fontaneros, electricistas, aire acondicionado, cerrajeros, techadores, jardinero
 - [Pinsent Masons – ACMA enforcement](https://www.pinsentmasons.com/out-law/analysis/acma-australian-scams-report)
 - [Clym – Australian data privacy regulation](https://www.clym.io/blog/australian-data-privacy-regulation-what-you-need-to-know)
 - [QLS – AML/CTF Starter Guide](https://www.qls.com.au/getmedia/58d2d0fb-424a-442d-8f0b-9672b8b0e84f/AML-CTF_Starter-Guide.pdf?ext=.pdf)
+- [IMARC – Australia Conversational AI Market](https://www.imarcgroup.com/australia-conversational-ai-market)
+- [LeadsNow – ABS AI adoption by business size](https://leadsnow.ai/ai-adoption-australian-businesses/)
+- [QuickBooks – AI Impact Report Australia 2026](https://quickbooks.intuit.com/au/blog/news/ai-impact-report-australia-2026/)
+- [ServiceScale – Sophiie review](https://www.servicescale.com.au/apps-for-tradies/crm-marketing/sophiie-ai)
+- [Valory – Best AI receptionist Australia](https://www.valory.com.au/resources/best-ai-receptionist-australia)
+- [Jodie – Best AI receptionist Australia](https://heyjodie.com/en-au/guides/best-ai-receptionist/)
+- [Relay – Compare](https://levasolutions.com.au/relay/compare)
+- [Miyai – Guide](https://miyai.ai/guides/best-ai-receptionist-2026)
+- [TransferToAI – 11 best AI answering services](https://transfertoai.com/blog/best-ai-answering-services-australia)
+- [chatbot.net.au](https://chatbot.net.au/)
+- [Systree](https://systree.com.au/conversational-ai)
+- [Stacked Digital](https://stackeddigital.com/services/ai-chatbots/)
+- [RightLink](https://rightlink.io/ai-chatbot)
+- [Aussie Business AI – Chatbot comparison](https://aussiebusinessai.com.au/blog/ai-chatbot-small-business-australia)
